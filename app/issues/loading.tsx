@@ -1,5 +1,4 @@
 import { Table, TableBody, TableCell } from "@radix-ui/themes";
-import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import IssueActions from "./IssueActions";
