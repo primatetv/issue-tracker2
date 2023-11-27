@@ -14,6 +14,7 @@ import {
   Flex,
   Text,
 } from "@radix-ui/themes";
+import { Skeleton } from "@/app/components";
 
 const NavBar = () => {
   return (
@@ -48,7 +49,7 @@ const NavLinks = () => {
           <Link
             className={classNames({
               "nav-link": true,
-              "!text-zinc-900": link.href === currentPath,
+              "text-zinc-900": link.href === currentPath,
             })}
             href={link.href}
           >
@@ -63,7 +64,7 @@ const NavLinks = () => {
 const AuthStatus = () => {
   const { status, data: session } = useSession();
 
-  if (status === "loading") return null;
+  if (status === "loading") return <Skeleton width="3rem" />;
 
   if (status === "unauthenticated")
     return (
@@ -87,7 +88,7 @@ const AuthStatus = () => {
         </DropdownMenu.Trigger>
         <DropdownMenu.Content>
           <DropdownMenu.Label>
-            <Text size="2">{session.user!.email}</Text>
+            <Text size="2">{session!.user!.email}</Text>
           </DropdownMenu.Label>
           <DropdownMenu.Item>
             <Link href="/api/auth/signout">Log out</Link>
