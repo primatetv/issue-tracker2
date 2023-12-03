@@ -23,7 +23,7 @@ const NavBar = () => {
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">
-              <PiBugBold />
+              <PiBugBold size="20" />
             </Link>
             <NavLinks />
           </Flex>
